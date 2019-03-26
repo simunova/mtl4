@@ -1,0 +1,13 @@
+#!/bin/sh
+echo "preinstall of mtl"
+MTLBOOST_DIRS="@HPPDIRS_STR@"
+BASE_DIR=/usr/include/
+
+for curDir in ${MTLBOOST_DIRS}; do
+if test ! -d ${BASE_DIR}/${curDir}  ; then
+	mkdir -p ${BASE_DIR}/${curDir} ;
+fi
+done
+
+mkdir -p /usr/share/mtl/tools/cmake
+exit 0

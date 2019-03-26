@@ -1,0 +1,7 @@
+#!/bin/sh
+#echo "uninstalling the mtl";
+
+#TODO: remove other directories also? (needs to check if they are empty)
+
+rm -rf /usr/share/mtl/examples
+rm -rf /usr/share/mtl/doc

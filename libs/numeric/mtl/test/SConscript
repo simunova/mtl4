@@ -1,0 +1,18 @@
+import glob
+
+Import('debug_env check full_warnings')
+
+sources = glob.glob("*.cpp")
+
+if full_warnings:
+    sources.remove('matrix_matrix_scalar_product_test.cpp') # int->double -> warning -> error 
+
+programs = []
+for p in sources:
+    programs.append(debug_env.Program(p))
+
+if int(check):
+    for p in programs:
+        debug_env.AddPostAction(p, p[0].abspath)
+
+Default(programs)

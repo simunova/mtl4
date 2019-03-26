@@ -1,0 +1,7 @@
+echo "uninstalling the mtl";
+
+#TODO: remove the directories also?
+
+BASE_DIR=/usr/include/boost
+rm -rf /usr/include/boost/numeric/mtl
+rm -rf /usr/share/mtl

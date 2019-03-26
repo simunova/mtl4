@@ -1,0 +1,13 @@
+import glob
+
+Import('high_opt_env')
+
+sources = glob.glob("*.cpp")
+
+programs = []
+for p in sources:
+    programs.append(high_opt_env.Program(p))
+
+Default(high_opt_env.Program('empty.cpp'))
+
+# need target everything or something like that

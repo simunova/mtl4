@@ -1,0 +1,6 @@
+#ifndef MTL_VERSION_HPP
+#define MTL_VERSION_HPP
+
+#define MTL_VERSION @MTL_MINOR_VERSION@
+
+#endif

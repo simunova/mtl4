@@ -1,0 +1,11 @@
+#! /bin/sh
+srun -b -o morton_order.results matrix_product_timing 0 400 4000
+srun -b -o cast.results matrix_product_timing 1 400 8000
+srun -b -o with_unroll.results matrix_product_timing 2 400 8000
+srun -b -o base_size.results matrix_product_timing 3 400 8000
+srun -b -o unrolling_hybrid.results matrix_product_timing 4 400 8000
+srun -b -o unrolling_dense.results matrix_product_timing 5 400 8000
+srun -b -o orientation.results matrix_product_timing 6 400 8000
+srun -b -o unrolling_32.results matrix_product_timing 7 400 8000
+srun -b -o hetero_value.results matrix_product_timing 8 400 8000
+srun -b -o hetero_layout.results matrix_product_timing 9 400 8000

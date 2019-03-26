@@ -1,0 +1,19 @@
+#!/bin/sh
+#echo "uninstalling the mtl";
+
+MTLBOOST_DIRS="@HPPDIRS_STR@"
+BASE_DIR=/usr/include/
+k=3;
+kwayDel=${MTLBOOST_DIRS};
+while test $k -ne 0 ; do
+	swapDel="";
+	for curDir in ${kwayDel}; do
+		rmdir ${BASE_DIR}/${curDir} 2> /dev/null ;
+		if test $? -ne 0 ; then
+			swapDel="${swapDel} ${curDir}";
+		fi
+	done
+	kwayDel=${swapDel};
+	k=$((k-1));
+done
+rm -rf /usr/share/mtl

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#TODO: remove other directories also? (needs to check if they are empty)
+
+rm -rf /usr/share/mtl/test

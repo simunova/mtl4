@@ -1,0 +1,10 @@
+import glob
+Import('debug_env')
+import glob
+
+sources = glob.glob("*.cpp")
+
+for p in sources:
+    debug_env.Program(p)
+
+Default(debug_env.Program('empty.cpp'))

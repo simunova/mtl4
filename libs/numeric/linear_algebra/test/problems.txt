@@ -1,0 +1,40 @@
+Problems and questions with numerical concepts
+
+- is_invertible with templated type
+  - enable_if better not use with concepts
+  - is_invertible defining without enable_if, instead control with concept maps
+- how to express convertibility of results (needed for templated concept map of complex)
+- how to express consistency between * and *= and so on?
+  - see file
+- if different result_type are defined in a concept C which one is C::result_type ?
+  - use other name for result_type (shouldn't work anyway)
+- mutually convertible result of Addable<T> and Magma< add<T>, T > 
+  - sametype is better
+- concept maps of char and short
+  - weird definition in C++, needs specialization
+- Can we express Prime<N> as a concept?
+  - yes
+
+- namespaces in concepts vs. template functions 
+  when using NS::f in template function, how to express the concept that
+  f is searched in NS unless ADL says otherwise
+  - e.g. using NS::f before concept
+
+- Can we check types for classes, e.g. is integral?
+  - not yet
+
+- problem with concept map
+
+- if a default implementation requires a concept which is otherwise not needed?
+  e.g. derivation of + from += needs CopyConstructible
+
+_______
+
+- ambiguity if more then one operator is defined cf. Closed2EqualityComparable in algebraic_functions.hpp
+  -> addition_result_type is not used in Closed2EqualityComparable (only result_type)
+- assigning N of type T to constant
+- typedefs in mod_n concept_map, why ?????????
+
+Long-term problems
+
+- Algebraic structures as equivalence classes instead of one type

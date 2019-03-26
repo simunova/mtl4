@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "preinstall of mtl tests"
+mkdir -p @USER_CUR_DIR@
+mkdir -p @USER_CUR_DIR@/cholesky
+mkdir -p @USER_CUR_DIR@/matrix_market
+exit 0

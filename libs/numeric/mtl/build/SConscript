@@ -1,0 +1,8 @@
+Import('high_opt_env')
+
+xerbla_obj = high_opt_env.Object('xerbla.c')
+xerbla_lib = high_opt_env.Library('xerbla.c')
+
+Default([xerbla_obj, xerbla_lib])
+
+# need target everything or something like that

@@ -1,0 +1,16 @@
+import glob
+
+Import('debug_env check')
+
+sources = glob.glob("*.cpp")
+
+
+programs = []
+for p in sources:
+    programs.append(debug_env.Program(p))
+
+if int(check):
+    for p in programs:
+        debug_env.AddPostAction(p, p[0].abspath)
+
+Default(programs)

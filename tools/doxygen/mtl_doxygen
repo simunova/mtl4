@@ -1,0 +1,7 @@
+#!/bin/sh
+cd libs/numeric/mtl/examples
+./update_footer
+cd ../../../..
+
+doxygen
+svn revert libs/numeric/mtl/examples/doxygen_footer.html # to avoid conflicts later

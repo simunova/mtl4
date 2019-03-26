@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "preinstall of mtl examples"
+mkdir -p /usr/share/mtl/examples
+mkdir -p /usr/share/mtl/examples/matrix_market
+mkdir -p /usr/share/mtl/examples/nesting
+exit 0

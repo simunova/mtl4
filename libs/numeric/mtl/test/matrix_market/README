@@ -1,0 +1,20 @@
+This directory contains some example files from matrix market for testing.
+Some properties of some files. For more details see matrix market.
+
+==> bcspwr02.mtx <==
+%%MatrixMarket matrix coordinate pattern symmetric
+
+==> bcsstk01.mtx <==
+%%MatrixMarket matrix coordinate real symmetric
+
+==> jgl009.mtx <==
+%%MatrixMarket matrix coordinate pattern general
+
+==> mhd1280b.mtx <==
+%%MatrixMarket matrix coordinate complex hermitian
+
+==> plskz362.mtx <==
+%%MatrixMarket matrix coordinate real skew-symmetric
+
+==> qc324.mtx <==
+%%MatrixMarket matrix coordinate complex general

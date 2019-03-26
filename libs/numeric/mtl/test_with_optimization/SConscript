@@ -1,0 +1,17 @@
+import glob
+
+Import('opt_env check full_warnings')
+
+sources = []
+if not full_warnings :
+    sources = glob.glob("*.cpp") # Glob("*.cpp") still have old scons on some machines
+
+programs = []
+for p in sources:
+    programs.append(opt_env.Program(p))
+
+if int(check):
+    for p in programs:
+        opt_env.AddPostAction(p, p[0].abspath)
+
+Default(programs)

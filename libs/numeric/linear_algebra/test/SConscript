@@ -1,0 +1,31 @@
+import os, glob
+
+Import('debug_env check')
+
+sources = glob.glob('*.cpp')
+
+# For testing only, the rest doesn't work yet
+# sources = ["power_test.cpp"]
+
+
+concept_env = debug_env.Clone()
+# concept_env = debug_env.Copy() # on older scons
+
+# Check if conceptg++ is in path (return code != 0)
+# Turn off for now
+if 1: #os.system('conceptg++ -v'):
+    sources = []
+else:
+    # TBD: check whether options are okay
+    concept_env['ENV']['PATH'] = os.environ['PATH']
+    concept_env['CXX'] = 'conceptg++'
+
+programs = []
+for p in sources:
+    programs.append(concept_env.Program(p))
+
+if int(check):
+    for p in programs:
+        concept_env.AddPostAction(p, p[0].abspath)
+
+Default(programs)

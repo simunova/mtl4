@@ -1,0 +1,25 @@
+Import('opt_env check full_warnings')
+import glob
+
+sources = glob.glob("*.cpp")
+
+if opt_env['CC'] == 'cl':
+    # assignment doesn't work with templates on cl
+    sources.remove('vector2.cpp')
+
+if full_warnings:
+    sources.remove('simulated_annealing.cpp')
+
+# with -pedantic and -Werror boost/random.hpp does not compile (used in simulated annealing)
+# thus with this options, skip it
+# sources.remove('simulated_annealing.cpp')
+
+programs = []
+for p in sources:
+    programs.append(opt_env.Program(p))
+
+if int(check):
+    for p in programs:
+        opt_env.AddPostAction(p, p[0].abspath)
+
+Default(programs)

@@ -1,0 +1,14 @@
+div#divHead 
+{
+	margin-top: 20px; 
+	margin-bottom: 20px; 
+}
+p#headLogo
+{
+	position:relative; 
+	top:-50px; 
+	left:130px; 
+	font-size:0.9em; 
+	color: #00FF00; 
+	font-family:'Arial',Arial,sans-serif;
+}

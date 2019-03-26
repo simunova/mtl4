@@ -1,0 +1,6 @@
+set(MTL_COMMON_CONFIG "${MTL_DIR}/tools/cmake/MTLCommon.cmake")
+if( EXISTS ${MTL_COMMON_CONFIG})
+	include(${MTL_COMMON_CONFIG})
+else()
+	message(ERROR "could not find the common mtl configuration. this is possibly a wrong installation of mtl.")
+endif()

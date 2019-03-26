@@ -1,0 +1,3 @@
+#!/bin/sh
+svn info | grep Revision | sed -e 's/Revision: /          rev. /' > doxygen_footer_rev.html
+cat doxygen_footer_p1.html doxygen_footer_rev.html doxygen_footer_p2.html > doxygen_footer.html
