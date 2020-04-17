@@ -76,7 +76,9 @@ III. Documentation
 The documentation can be generated with doxygen in the main directory and
 is found in the /libs/numeric/mtl/doc. You
 can also view the documentation at our web site:
-http://www.simunova.com/node/184
+
+https://www.simunova.com/en/mtl4/
+
 At the moment, the documentation illustrates the basic operations and
 partially provides a reference manual of some classes and functions.
 A detailed description of more features, especially tuning opportunities,
