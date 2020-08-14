@@ -43,6 +43,7 @@
 #include <boost/numeric/mtl/operation/inv.hpp>
 #include <boost/numeric/mtl/operation/invert_diagonal.hpp>
 #include <boost/numeric/mtl/operation/is_negative.hpp>
+#include <boost/numeric/mtl/operation/kron.hpp>
 #include <boost/numeric/mtl/operation/lazy.hpp>
 #include <boost/numeric/mtl/operation/left_scale_inplace.hpp>
 #include <boost/numeric/mtl/operation/log.hpp>

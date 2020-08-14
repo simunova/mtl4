@@ -13,6 +13,8 @@
 #ifndef MTL_IO_MATRIX_FILE_INCLUDE
 #define MTL_IO_MATRIX_FILE_INCLUDE
 
+#include <string>
+
 namespace mtl { namespace io {
 
 template <typename MatrixIFStream, typename MatrixOFStream>

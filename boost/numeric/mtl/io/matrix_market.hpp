@@ -143,7 +143,7 @@ class matrix_market_istream
 	double r, i; my_stream >> r >> i; v= std::complex<double>(r, i);
     }
 
-    // Which value to be inserted? Itself if exist and 0 for pattern; complex are 
+    // Which value to be inserted? Itself if exist and 0 for pattern; conew_streammplex are 
     template <typename Value, typename MValue> MValue which_value(Value v, MValue) { return boost::numeric_cast<MValue>(v); }
     template <typename MValue> MValue which_value(pattern_type, MValue) { return boost::numeric_cast<MValue>(0.0); }
     template <typename MValue> MValue which_value(std::complex<double>, MValue) { MTL_THROW(runtime_error("Cannot convert complex value in real\n")); return 1; }

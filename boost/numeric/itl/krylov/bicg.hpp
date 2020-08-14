@@ -20,6 +20,7 @@
 #include <boost/numeric/mtl/concept/collection.hpp>
 #include <boost/numeric/mtl/operation/conj.hpp>
 #include <boost/numeric/mtl/operation/resource.hpp>
+#include <boost/numeric/mtl/operation/adjoint.hpp>
 #include <boost/numeric/mtl/interface/vpt.hpp>
 
 namespace itl {
