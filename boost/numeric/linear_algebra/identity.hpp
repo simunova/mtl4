@@ -36,7 +36,7 @@ struct identity_t {};
 // for better efficiency.
 template <typename Element>
 struct identity_t< add<Element>, Element > 
-  : public std::binary_function<add<Element>, Element, Element>
+  : public binary_function<add<Element>, Element, Element>
 { 
     Element operator() (const add<Element>&, const Element& ref) const
     {
@@ -48,7 +48,7 @@ struct identity_t< add<Element>, Element >
 
 template <>
 struct identity_t< add<std::string>, std::string > 
-  : public std::binary_function<add<std::string>, std::string, std::string>
+  : public binary_function<add<std::string>, std::string, std::string>
 { 
     std::string operator() (const add<std::string>&, const std::string&) const
     {
@@ -61,7 +61,7 @@ struct identity_t< add<std::string>, std::string >
 // In contrast to additive identity, this default more likely to be wrong (e.g. matrices with all 1s)
 template <typename Element>
 struct identity_t< mult<Element>, Element > 
-  : public std::binary_function<mult<Element>, Element, Element>
+  : public binary_function<mult<Element>, Element, Element>
 { 
     Element operator() (const mult<Element>&, const Element& ref) const
     {
@@ -75,7 +75,7 @@ struct identity_t< mult<Element>, Element >
 // Identity of max is minimal representable value, for standard types defined in numeric_limits
 template <typename Element>
 struct identity_t< max<Element>, Element > 
-  : public std::binary_function<max<Element>, Element, Element>
+  : public binary_function<max<Element>, Element, Element>
 { 
     Element operator() (const max<Element>&, const Element& ) const
     {
@@ -86,7 +86,7 @@ struct identity_t< max<Element>, Element >
 
 template <>
 struct identity_t< max<float>, float > 
-  : public std::binary_function<max<float>, float, float>
+  : public binary_function<max<float>, float, float>
 { 
     float operator() (const max<float>&, const float& ) const
     {
@@ -97,7 +97,7 @@ struct identity_t< max<float>, float >
 
 template <>
 struct identity_t< max<double>, double > 
-  : public std::binary_function<max<double>, double, double>
+  : public binary_function<max<double>, double, double>
 { 
     double operator() (const max<double>&, const double& ) const
     {
@@ -111,7 +111,7 @@ struct identity_t< max<double>, double >
    
 template <>
 struct identity_t< max<long double>, long double > 
-  : public std::binary_function<max<long double>, long double, long double>
+  : public binary_function<max<long double>, long double, long double>
 { 
     long double operator() (const max<long double>&, const long double& ) const
     {
@@ -127,7 +127,7 @@ struct identity_t< max<long double>, long double >
 // Identity of min is maximal representable value, for standard types defined in numeric_limits
 template <typename Element>
 struct identity_t< min<Element>, Element > 
-  : public std::binary_function<min<Element>, Element, Element>
+  : public binary_function<min<Element>, Element, Element>
 { 
     Element operator() (const min<Element>&, const Element& ) const
     {
@@ -139,7 +139,7 @@ struct identity_t< min<Element>, Element >
 // Identity of bit-wise and
 template <typename Element>
 struct identity_t< bitwise_and<Element>, Element > 
-  : public std::binary_function<bitwise_and<Element>, Element, Element>
+  : public binary_function<bitwise_and<Element>, Element, Element>
 { 
     Element operator() (const bitwise_and<Element>&, const Element&) const
     {
@@ -150,7 +150,7 @@ struct identity_t< bitwise_and<Element>, Element >
 // Identity of bit-wise or
 template <typename Element>
 struct identity_t< bitwise_or<Element>, Element > 
-  : public std::binary_function<bitwise_or<Element>, Element, Element>
+  : public binary_function<bitwise_or<Element>, Element, Element>
 { 
     Element operator() (const bitwise_or<Element>&, const Element&) const
     {

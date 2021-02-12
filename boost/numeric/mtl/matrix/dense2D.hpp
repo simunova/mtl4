@@ -897,7 +897,7 @@ namespace math {
     // Multiplicative identities of matrices
     template <typename Value, typename Parameters>
     struct identity_t< mult<mtl::mat::dense2D<Value, Parameters> >, mtl::mat::dense2D<Value, Parameters> >
-        : public std::binary_function< mult<mtl::mat::dense2D<Value, Parameters> >, 
+        : public binary_function< mult<mtl::mat::dense2D<Value, Parameters> >, 
 				       mtl::mat::dense2D<Value, Parameters>, 
 				       mtl::mat::dense2D<Value, Parameters> >
     {

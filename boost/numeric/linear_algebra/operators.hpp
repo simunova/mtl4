@@ -19,8 +19,16 @@
 #ifndef MATH_DEFAULT_FUNCTORS_WITH_CONCEPTS
 namespace math {
 
+    template <typename Arg1, typename Arg2, typename Result>
+    struct binary_function
+    {
+        typedef Arg1 first_argument_type;
+        typedef Arg2 second_argument_type;
+        typedef Result result_type;
+    };
+
 template <typename Element>
-struct add : public std::binary_function<Element, Element, Element>
+struct add : public binary_function<Element, Element, Element>
 {
     Element operator() (const Element& x, const Element& y)
     {
@@ -32,7 +40,7 @@ struct add : public std::binary_function<Element, Element, Element>
 // Heterogeneous addition, i.e. addends and result type may be different
 template <typename A1, typename A2, typename R>
 struct heterogeneous_add 
-  : public std::binary_function<A1, A2, R>
+  : public binary_function<A1, A2, R>
 {
     R operator() (const A1& x, const A2& y)
     {
@@ -49,7 +57,7 @@ template <> struct add<unsigned short> : heterogeneous_add<unsigned short, unsig
 
 
 template <typename Element>
-struct mult : public std::binary_function<Element, Element, Element>
+struct mult : public binary_function<Element, Element, Element>
 {
     Element operator() (const Element& x, const Element& y)
     {
@@ -60,7 +68,7 @@ struct mult : public std::binary_function<Element, Element, Element>
 
 template <typename A1, typename A2, typename R>
 struct heterogeneous_mult 
-  : public std::binary_function<A1, A2, R>
+  : public binary_function<A1, A2, R>
 {
     R operator() (const A1& x, const A2& y)
     {
@@ -81,7 +89,7 @@ template <> struct mult<unsigned short> : heterogeneous_mult<unsigned short, uns
 
 template <typename Element>
   requires std::HasPlus<Element>
-struct add : public std::binary_function<Element, Element, result_type>
+struct add : public binary_function<Element, Element, result_type>
 {
     result_type operator() (const Element& x, const Element& y)
     {
@@ -91,7 +99,7 @@ struct add : public std::binary_function<Element, Element, result_type>
 
 template <typename Element>
   requires std::HasMultiply<Element>
-struct mult : public std::binary_function<Element, Element, result_type>
+struct mult : public binary_function<Element, Element, result_type>
 {
     result_type operator() (const Element& x, const Element& y)
     {
@@ -105,7 +113,7 @@ struct mult : public std::binary_function<Element, Element, result_type>
 #endif // MATH_DEFAULT_FUNCTORS_WITH_CONCEPTS
 
 template <typename Element>
-struct min : public std::binary_function<Element, Element, Element>
+struct min : public binary_function<Element, Element, Element>
 {
     Element operator() (const Element& x, const Element& y)
     {
@@ -115,7 +123,7 @@ struct min : public std::binary_function<Element, Element, Element>
 
 
 template <typename Element>
-struct max : public std::binary_function<Element, Element, Element>
+struct max : public binary_function<Element, Element, Element>
 {
     Element operator() (const Element& x, const Element& y)
     {
@@ -124,7 +132,7 @@ struct max : public std::binary_function<Element, Element, Element>
 };
 
 template <typename Element>
-struct bitwise_and : public std::binary_function<Element, Element, Element>
+struct bitwise_and : public binary_function<Element, Element, Element>
 {
     Element operator() (const Element& x, const Element& y)
     {
@@ -133,7 +141,7 @@ struct bitwise_and : public std::binary_function<Element, Element, Element>
 };
 
 template <typename Element>
-struct bitwise_or : public std::binary_function<Element, Element, Element>
+struct bitwise_or : public binary_function<Element, Element, Element>
 {
     Element operator() (const Element& x, const Element& y)
     {
@@ -142,7 +150,7 @@ struct bitwise_or : public std::binary_function<Element, Element, Element>
 };
 
 template <typename Element>
-struct bitwise_xor : public std::binary_function<Element, Element, Element>
+struct bitwise_xor : public binary_function<Element, Element, Element>
 {
     Element operator() (const Element& x, const Element& y)
     {
