@@ -57,7 +57,7 @@ int main(int, char**)
     tout << "Q*R=\n" << Q * R << "\n";
 
     tout << "one_norm(Rest A)=" << one_norm(A_test) << "\n";
-    MTL_THROW_IF(one_norm(A_test) > tol, mtl::logic_error("wrong QR decomposition of matrix A"));
+    MTL_THROW_IF(one_norm(A_test) > tol, mtl::logic_error("wrong LQ decomposition of matrix A"));
 
 
     tout << "START------dense2d-------row < col\n";
@@ -70,7 +70,7 @@ int main(int, char**)
     tout << "Q_t*R_t=\n" << Q_t * R_t << "\n";
 
     tout << "one_norm(Rest A')=" << one_norm(A_t_test) << "\n";
-    MTL_THROW_IF(one_norm(A_t_test) > tol, mtl::logic_error("wrong QR decomposition of matrix trans(A)"));
+    MTL_THROW_IF(one_norm(A_t_test) > tol, mtl::logic_error("wrong LQ decomposition of matrix trans(A)"));
 
     tout << "START-------compressed2d-------row > col\n";
 #if 1
@@ -82,7 +82,7 @@ int main(int, char**)
     tout << "A=\n" << Ac << "\n";
 
     tout << "one_norm(Rest A)=" << one_norm(A_testc) << "\n";
-    MTL_THROW_IF(one_norm(A_testc) > tol, mtl::logic_error("wrong QR decomposition of matrix A"));
+    MTL_THROW_IF(one_norm(A_testc) > tol, mtl::logic_error("wrong LQ decomposition of matrix A"));
 #endif
 
 #if 0
@@ -99,9 +99,9 @@ int main(int, char**)
     tout << "MAtrix complex=\n" << dz << "\n";
 
     tout << "START-----complex---------" << dz[0][0] << "\n";
-    //
-    boost::tie(Qz, Rz) = qr(dz);
-    // Rz= qr_zerl(dz).second;
+    //AxB==BxA(For square matrix) LQ==QR(Transpose(A)
+    boost::tie(Qz, Rz) = lq(dz);
+    // Rz= lq_zerl(dz).second;
     // tout<<"MAtrix  R="<< Rz <<"\n";
     // tout<<"MAtrix  Q="<< Qz <<"\n";
     // tout<<"MAtrix  A=Q*R--outside"<< Qz*Rz <<"\n";

@@ -33,7 +33,7 @@ namespace mtl {
     namespace mat {
 
 
-        /// LW-Factorization of matrix A(m x n)
+        /// LQ-Factorization of matrix A(m x n)
         /** Return pair L lower triangle matrix and Q= orthogonal matrix. L and Q are always dense2D **/
         template <typename Matrix, typename MatrixQ, typename MatrixR>
         void lq(const Matrix& A, MatrixQ& Q, MatrixR& R)
