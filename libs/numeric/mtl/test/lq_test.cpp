@@ -14,6 +14,7 @@
 #include <boost/utility.hpp>
 #include <boost/numeric/mtl/mtl.hpp>
 
+
 using namespace std;
 
 
@@ -106,6 +107,25 @@ int main(int, char**)
     // tout<<"MAtrix  Q="<< Qz <<"\n";
     // tout<<"MAtrix  A=Q*R--outside"<< Qz*Rz <<"\n";
 #endif
+    //Rewriting least squares solution using QR/LQ factorization A = QR, QR==LQ(transpose(A)).
+    //  x = R^-1 Q^T x b
+    /*  1. compute QR factorization A = QR(2mn^2 flops if A is m × n)
+        2. matrix - vector product d = Q^T b(2mn flops)
+        3. solve Rx = d by back substitution(n^2 flops)
+        complexity: 2mn^2 flops
+    */
+    //QR factorization method is more stable because it avoids forming A^T A
+    dense2D<double> x(A[iall][iall]),d(A[iall][iall]),b(A[iall][iall]);
+    //vector<vector<double>> b(3, vector<double> (1));
+    hessian_setup(x, 3.0); hessian_setup(d, 1.0);
+    hessian_setup(b, 3.0);
+    b[0][0] = -1, b[1][0] = 7, b[2][0] = 2;
+    boost::tie(Q, R) = lq(A);
+    mult(Q,b,d);
+    d = trans(Q) * b;
+    //d = trans(Q) * b;
+    //lq decomposition is performed here so R==L here 
+    x = inv(R) * d;
+    tout << "Solution to least square's problem is:" << x;
     return 0;
 }
-
